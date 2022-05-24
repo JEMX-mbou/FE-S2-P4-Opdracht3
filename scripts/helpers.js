@@ -7,7 +7,7 @@ function timestampToDate( timestamp, type ) {
   const months = ['Jan', 'Feb', 'Maa', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
   if (type == 'hourly') return leadingZero(date.getHours()) + ':' + leadingZero(date.getMinutes());
-  if (type == 'daily') return days[date.getDay()] + ' ' + leadingZero(date.getDate()) + ' ' + months[date.getMonth()];
+  if (type == 'daily') return days[date.getDay()-1] + ' ' + leadingZero(date.getDate()) + ' ' + months[date.getMonth()];
   if (type == 'update') return timestampToDate(timestamp, 'daily') + ' @ ' + timestampToDate(timestamp, 'hourly');
 }
 
